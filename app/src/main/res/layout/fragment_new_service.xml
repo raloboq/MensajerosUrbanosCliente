@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nservice"
+        android:background="@drawable/card"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Seleccione_tipo_serv"
+            android:id="@+id/typeservice_Selection"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Express"
+                android:id="@+id/type_service_b1"
+                android:layout_weight="1"
+                android:layout_marginRight="3dp"
+                android:textSize="16dp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Estandard"
+                android:id="@+id/type_service_b2"
+                android:layout_weight="1"
+                android:layout_marginRight="3dp"
+                android:textStyle="normal"
+                android:textSize="16dp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Por horas"
+                android:id="@+id/type_service_b3"
+                android:layout_weight="1"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/SelectedDateText"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Seleccione_fecha_hora"
+            android:id="@+id/datetime_button"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_shape_blue"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Siguiente"
+        android:id="@+id/Next1"
+        android:layout_gravity="center"
+        android:background="@drawable/button_shape_blue"
+        android:padding="10dp"
+        android:textColor="#ffffff" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="24dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/type_service_text"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:text="servicios"
+            />
+
+
+
+
+        </LinearLayout>
+
+        </FrameLayout>
+
+    </ScrollView>
+
+</LinearLayout>

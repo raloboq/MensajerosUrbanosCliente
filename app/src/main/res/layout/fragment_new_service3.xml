@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Descripcion"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/Descripcionlabel"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/descripcion"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:background="@drawable/new_edit_text"
+            android:hint="@string/Descripcion"
+            android:lines="3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Valor_declarado"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/valor_declaradolabel"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/new_edit_text"
+            android:padding="5dp"
+            android:ems="10"
+            android:id="@+id/valor_declarado"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:hint="@string/Valor_declarado"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/promcode"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/promcodelabel"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/new_edit_text"
+            android:padding="5dp"
+            android:ems="10"
+            android:id="@+id/promcode"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:hint="@string/promcode"
+            android:layout_marginBottom="20dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ida y vuelta"
+            android:id="@+id/idavuelta"
+            android:layout_gravity="center"
+            android:checked="false" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Siguiente"
+        android:id="@+id/Next3"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_shape_blue"
+        android:padding="10dp" />
+</LinearLayout>
