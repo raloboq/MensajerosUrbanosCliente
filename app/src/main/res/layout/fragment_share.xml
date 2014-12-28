@@ -2,36 +2,66 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#289DB8">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView6"
+        android:src="@drawable/logo_volando_blanco"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Cúando un amigo pide un servicio con tu codigo ambos obtienen $xmil COP"
-        android:id="@+id/textView"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="20dp"
+        android:text="Comparta Mensajeros Urbanos"
+        android:id="@+id/textView24"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Y por cada referido reciba puntos gratis para reclamar premios"
+        android:id="@+id/textView25"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
         android:gravity="center" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="AAA217B"
-        android:id="@+id/refer_code"
-        android:gravity="center"
-        android:layout_marginBottom="20dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Compartir código"
-        android:id="@+id/Sharebutton"
-        android:gravity="center"
-        android:background="@drawable/button_shape_blue"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fb_button"
+            android:background="@drawable/btn_fb" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/g_button"
+            android:background="@drawable/btn_gplus"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tw_button"
+            android:background="@drawable/btn_twitter" />
+    </LinearLayout>
 </LinearLayout>

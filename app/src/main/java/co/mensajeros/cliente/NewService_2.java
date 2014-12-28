@@ -2,21 +2,27 @@ package co.mensajeros.cliente;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,16 +30,39 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import co.mensajeros.cliente.Utils.ServiceObjectChanged;
+import co.mensajeros.cliente.Utils.SlidingTabLayout;
+
 /**
  * Created by Rene on 9/3/14.
  */
-public class NewService_2 extends Fragment implements View.OnFocusChangeListener, OnDirectionChecked {
+public class NewService_2 extends Fragment implements View.OnFocusChangeListener, OnDirectionChecked, OnPageChangedL {
+
+     ServiceObject service = new ServiceObject();
+
+
+    private static final String ARG_SECTION_NUMBER = "section_number";
+
+    public static NewService_2 newInstance(int sectionNumber) {
+        NewService_2 fragment = new NewService_2();
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+
+        Log.i("paso2", "instance paso 2");
+
+
+        //service= (ServiceObject) extras.getSerializable("serviceobject");
+
+
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     public NewService_2() {
     }
 
 
-    ServiceObject service = new ServiceObject();
+
     ArrayList<EditText> AddresList = new ArrayList<EditText>();
     ArrayList<Direcciones> direcciones = new ArrayList<Direcciones>();
 
@@ -77,6 +106,22 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
     Typeface font1;
     Typeface font2;
 
+    boolean remove = false;
+
+    public OnDirectionChecked dircheck2;
+
+     Button next;
+
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+
+    Gson gson;
+
+    CheckBox idayvuelta;
+    SharedPreferences userpref;
+    String USERNAME = "";
+
+    private static OnStep2Next step2;
 
 
 
@@ -85,46 +130,89 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.fragment_new_service2, container, false);
 
+        Log.i("paso2", "createview paso 2");
+
+        gson = new Gson();
+
+        pref = getActivity().getSharedPreferences("MURBANOS", 0); // 0 - for private mode
+        editor = pref.edit();
+
+
+        userpref = getActivity().getSharedPreferences("UrbanosPref", 0); // 0 - for private mode
+        USERNAME = userpref.getString("USERNAME", "");
+
+
+
+        //String json = pref.getString("MyObject", "");
+        //service = gson.fromJson(json, ServiceObject.class);
+
+
+
+
+
+        SlidingTabLayout slide = new SlidingTabLayout(getActivity());
+        slide.setOnPageChangedL(this);
+
         font2 = Typeface.createFromAsset(getActivity().getAssets(), "Raleway-Medium.ttf");
         font1 = Typeface.createFromAsset(getActivity().getAssets(), "Raleway-Regular.ttf");
 
+        TextView Username = (TextView)rootView.findViewById(R.id.UserName);
+        Username.setText(USERNAME);
+
         direccion3 = (EditText)rootView.findViewById(R.id.dirEntregaText3);
         direccion3.setOnFocusChangeListener(this);
-
+        direccion3.setVisibility(View.GONE);
         direccion4 = (EditText)rootView.findViewById(R.id.dirEntregaText4);
         direccion4.setOnFocusChangeListener(this);
+        direccion4.setVisibility(View.GONE);
         direccion5 = (EditText)rootView.findViewById(R.id.dirEntregaText5);
         direccion5.setOnFocusChangeListener(this);
+        direccion5.setVisibility(View.GONE);
         direccion6 = (EditText)rootView.findViewById(R.id.dirEntregaText6);
         direccion6.setOnFocusChangeListener(this);
+        direccion6.setVisibility(View.GONE);
         direccion7 = (EditText)rootView.findViewById(R.id.dirEntregaText7);
         direccion7.setOnFocusChangeListener(this);
+        direccion7.setVisibility(View.GONE);
         direccion8 = (EditText)rootView.findViewById(R.id.dirEntregaText8);
         direccion8.setOnFocusChangeListener(this);
+        direccion8.setVisibility(View.GONE);
         direccion9 = (EditText)rootView.findViewById(R.id.dirEntregaText9);
         direccion9.setOnFocusChangeListener(this);
+        direccion9.setVisibility(View.GONE);
         direccion10 = (EditText)rootView.findViewById(R.id.dirEntregaText10);
         direccion10.setOnFocusChangeListener(this);
+        direccion10.setVisibility(View.GONE);
         direccion11 = (EditText)rootView.findViewById(R.id.dirEntregaText11);
         direccion11.setOnFocusChangeListener(this);
+        direccion11.setVisibility(View.GONE);
         direccion12 = (EditText)rootView.findViewById(R.id.dirEntregaText12);
         direccion12.setOnFocusChangeListener(this);
+        direccion12.setVisibility(View.GONE);
         direccion13 = (EditText)rootView.findViewById(R.id.dirEntregaText13);
         direccion13.setOnFocusChangeListener(this);
+        direccion13.setVisibility(View.GONE);
         direccion14 = (EditText)rootView.findViewById(R.id.dirEntregaText14);
         direccion14.setOnFocusChangeListener(this);
+        direccion14.setVisibility(View.GONE);
         direccion15 = (EditText)rootView.findViewById(R.id.dirEntregaText15);
         direccion15.setOnFocusChangeListener(this);
+        direccion15.setVisibility(View.GONE);
         direccion16 = (EditText)rootView.findViewById(R.id.dirEntregaText16);
         direccion16.setOnFocusChangeListener(this);
+        direccion16.setVisibility(View.GONE);
         direccion17 = (EditText)rootView.findViewById(R.id.dirEntregaText17);
         direccion17.setOnFocusChangeListener(this);
+        direccion17.setVisibility(View.GONE);
         direccion18 = (EditText)rootView.findViewById(R.id.dirEntregaText18);
         direccion18.setOnFocusChangeListener(this);
+        direccion18.setVisibility(View.GONE);
         direccion19 = (EditText)rootView.findViewById(R.id.dirEntregaText19);
         direccion19.setOnFocusChangeListener(this);
+        direccion19.setVisibility(View.GONE);
         direccion20 = (EditText)rootView.findViewById(R.id.dirEntregaText20);
         direccion20.setOnFocusChangeListener(this);
+        direccion20.setVisibility(View.GONE);
 
         AddresList.add(direccion3);
         AddresList.add(direccion4);
@@ -147,15 +235,18 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
 
 
 
+        idayvuelta = (CheckBox)rootView.findViewById(R.id.idavuelta);
+        idayvuelta.setTypeface(font1);
 
-        Bundle extras = getArguments();
 
-        service= (ServiceObject) extras.getSerializable("serviceobject");
+
+
+
       //  Log.i("service",service.getFecha_recogida());
 
-        Spinner city = (Spinner)rootView.findViewById(R.id.cityspinner);
+        //Spinner city = (Spinner)rootView.findViewById(R.id.cityspinner);
 
-        service.setCiudad(city.getPrompt().toString());
+//        service.setCiudad(city.getPrompt().toString()); //QUITADO PARA QUE SIRVA EL DRAWER
 
 
         dirRecogida = (EditText)rootView.findViewById(R.id.dirRecogidaText);
@@ -169,11 +260,7 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
         dirEntregaIcon = (ImageView)rootView.findViewById(R.id.dirEntregaIcon);
         dirEntregaIcon.setBackgroundResource(R.drawable.edit_gray);
 
-        TextView dirRecogidat = (TextView)rootView.findViewById(R.id.dirRecogida);
-        dirRecogidat.setTypeface(font1);
 
-        TextView dirEntregat = (TextView)rootView.findViewById(R.id.dirEntrega);
-        dirEntregat.setTypeface(font1);
 
         dirRecogida.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -182,19 +269,29 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                 if(!b&&!dirRecogida.getText().toString().isEmpty()) {
                     actualResId=dirRecogida.getId();
                     actualResIdIcon=dirRecogidaIcon.getId();
+                    Log.i("res","res "+actualResId);
                     new CheckAddress().execute("0",dirRecogida.getText().toString());
                     //RevisarAddress("0",dirRecogida.getText().toString());
                 }
                 if(!b&&dirRecogida.getText().toString().isEmpty()){
 
                     Log.i("direccion","alerta recogida vacia");
-                    DialogFragment dialog = new UserAlertDialogFragment();
+                    DialogFragment dialog = new AddressErrorDialogFragment2();
                     Bundle args = new Bundle();
                     args.putString("title", "Alerta");
                     args.putString("message", "La dirección de recogida esta vacia");
                     dialog.setArguments(args);
+                    //dialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.MyDialog);
+
                     dialog.setTargetFragment(dialog,0);
                     dialog.show(getFragmentManager(), "tag");
+
+
+
+
+
+
+
                 }
             }
         });
@@ -203,9 +300,10 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
             @Override
             public void onFocusChange(View view, boolean b) {
 
-                if(!b&&!dirEntrega.getText().toString().isEmpty()) {
+                if(!b && !dirEntrega.getText().toString().isEmpty()) {
                     ultima="1";
                     actualResId=dirEntrega.getId();
+                    Log.i("res","res "+actualResId);
                     actualResIdIcon=dirEntregaIcon.getId();
                     new CheckAddress().execute("1",dirEntrega.getText().toString(), ultima);
                     //RevisarAddress("1",dirEntrega.getText().toString());
@@ -213,13 +311,16 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                 if(!b&&dirEntrega.getText().toString().isEmpty()){
 
                     Log.i("direccion","alerta entrega vacia");
-                    DialogFragment dialog = new UserAlertDialogFragment();
+                    DialogFragment dialog = new AddressErrorDialogFragment2();
                     Bundle args = new Bundle();
                     args.putString("title", "Alerta");
                     args.putString("message", "La dirección de entrega esta vacia");
                     dialog.setArguments(args);
-                    dialog.setTargetFragment(dialog,0);
+                    Log.i("res", "res error");
+                    dialog.setTargetFragment(dialog, 0);
                     dialog.show(getFragmentManager(), "tag");
+
+
                 }
 
             }
@@ -241,8 +342,10 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                         Log.i("list","add ="+ListIndex);
 
                         if(ListIndex<18 && ListIndex>=0) {
+                            Log.i("list","add ="+ListIndex+" "+AddresList.get(ListIndex).getId());
 
                             AddresList.get(ListIndex).setVisibility(View.VISIBLE);
+
                             AddresList.get(ListIndex).requestFocus();
                             ListIndex++;
 
@@ -262,11 +365,27 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
             @Override
             public void onClick(View view) {
                 Log.i("list","remove ="+ListIndex);
-
+                remove=true;
                 if(ListIndex>=0) {
-                    if(ListIndex!=0)
-                        ListIndex--;
+                    Log.i("list","remove ="+ListIndex);
                     AddresList.get(ListIndex).setVisibility(View.GONE);
+                    if(ListIndex!=0)
+                    {
+                        Log.i("list","remove ="+ListIndex);
+
+                    //Log.i("rmdireccion ",direcciones.get(ListIndex-1).getAddress()+" "+(ListIndex-1));
+                    try{
+                        direcciones.remove(ListIndex-1);
+                    }
+                    catch (Exception E){
+
+
+                    }
+                    ListIndex--;
+
+                        Log.i("list","remove ="+ListIndex);
+                    }
+                    //direcciones.remove(ListIndex+2);}
 
                 }
                 //LinearLayout secondStepremove = (LinearLayout)rootView.findViewById(R.id.add_remove_directions);
@@ -278,7 +397,8 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
 
 
 
-        final Button next = (Button)rootView.findViewById(R.id.Next2);
+        next = (Button)rootView.findViewById(R.id.Next2);
+        next.setVisibility(View.VISIBLE);
         next.setTypeface(font2);
 
         next.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -289,6 +409,7 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                     usernext = true;
 
                     Log.i("next","click");
+                    setDirectionCheckedListener(dircheck2);
                 }
             }
         });
@@ -297,9 +418,16 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
             @Override
             public void onClick(View view) {
 
-               // usernext=true;
+                //Log.i("type",service.getTipo_servicio());
+
+//                Log.i("tipoo","s2 "+service.getHora_recogida()+" "+service.getFecha_recogida());
+
+//                Log.i("listdir","num= "+service.getDirecciones().size());
+
+                usernext=true;
                 //Log.i("next","click");
                 next.requestFocus();
+                setDirectionCheckedListener(dircheck2);
 
                 Log.i("next","on click next");
 
@@ -327,7 +455,7 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                     dialog.show(getFragmentManager(), "tag");
                 }
 
-
+                step2.step2next();
 
 
 
@@ -409,7 +537,7 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
 
 
             case R.id.dirEntregaText3:
-                if (!b && !direccion3.getText().toString().isEmpty()) {
+                if (!b && !direccion3.getText().toString().isEmpty() && !remove ) {
                     actualResId=direccion3.getId();
                     new CheckAddress().execute("2",direccion3.getText().toString());
                     //RevisarAddress("2",direccion3.getText().toString());
@@ -646,11 +774,32 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
 
         Log.i("async","direction checked");
 
-        service.setDirecciones(direcciones);
+
+        try {
+            if (idayvuelta.isChecked())
+                service.setIdayVuelta("1");
+            else
+                service.setIdayVuelta("0");
+
+            service.setDirecciones(direcciones);
+        }catch (Exception e){
+
+            e.printStackTrace();
+            Log.i("pficti","paila");
+        }
+
+        String json = gson.toJson(service);
+        editor.putString("MyObject", json).commit();
+
+
+
+
         totalapproved = 0;
+        Log.i("dsize ",""+direcciones.size());
         for (int j = 0; j < direcciones.size(); j++) {
             if (direcciones.get(j).isApproved()) {
                 totalapproved++;
+                Log.i("dsize ",""+totalapproved);
             }
 
         }
@@ -661,14 +810,22 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
             Log.i("next","true");
             if ((totalapproved == direcciones.size()) && direcciones.size() >= 2) {
                 Log.i("next","approved");
-                Bundle data = new Bundle();
-                data.putSerializable("serviceobject", service);
-                NewService_3 nservice3 = new NewService_3();
-                nservice3.setArguments(data);
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, nservice3)
+                //Bundle data = new Bundle();
+                //data.putSerializable("serviceobject", service);hh
+                //NewService_3 nservice3 = new NewService_3();
+                //nservice3.setArguments(data);
+
+
+
+
+
+
+
+
+                /*getActivity().getSupportFragmentManager().beginTransaction()
+                        .add(R.id.container, nservice3)
                         .addToBackStack("n1")
-                        .commit();
+                        .commit();*/
 
             }
         }
@@ -680,6 +837,71 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
         Log.i("direction","finish");
 
     }
+
+    /*@Override
+    public void nextclicked() {
+
+        usernext=true;
+        //Log.i("next","click");
+        next.requestFocus();
+        setDirectionCheckedListener(dircheck2);
+
+        Log.i("next","on click next");
+
+        if(dirRecogida.getText().toString().isEmpty()){
+
+            Log.i("direccion","alerta recogida vacia");
+            DialogFragment dialog = new AddressErrorDialogFragment2();
+            Bundle args = new Bundle();
+            args.putString("title", "Alerta");
+            args.putString("message", "La dirección de recogida esta vacia");
+            dialog.setArguments(args);
+            dialog.setTargetFragment(dialog,0);
+            dialog.show(getFragmentManager(), "tag");
+        }
+
+        if(dirEntrega.getText().toString().isEmpty()){
+
+            Log.i("direccion","alerta entrega vacia");
+            DialogFragment dialog = new AddressErrorDialogFragment2();
+            Bundle args = new Bundle();
+            args.putString("title", "Alerta");
+            args.putString("message", "La dirección de entrega esta vacia");
+            dialog.setArguments(args);
+            dialog.setTargetFragment(dialog,0);
+            dialog.show(getFragmentManager(), "tag");
+
+
+        }
+
+    }*/
+
+    @Override
+    public int onpagechange(int pos) {
+
+        //Log.i("paso2", "page change 2");
+
+        //Log.i("page","bbbbb"+pos);
+
+        //pref = getActivity().getSharedPreferences("MURBANOS", 0); // 0 - for private mode
+        //editor = pref.edit();
+
+
+        //String json = pref.getString("MyObject", "");
+        //service = gson.fromJson(json, ServiceObject.class);
+
+        //Log.i("shared","tipo "+service.getTipo_servicio());
+
+        //Bundle a = new Bundle();
+        //service = (ServiceObject) a.getSerializable("serviceobject");
+        //Log.i("object",service.getFecha_recogida());
+
+
+
+        return 0;
+    }
+
+
 
     private class CheckAddress extends AsyncTask<String, String, JSONObject> {
 
@@ -706,8 +928,9 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
             UserFunctions userFunction = new UserFunctions();
             Log.i("address","arg="+args[1]);
             JSONObject json = userFunction.CHeckDirections(args[1]);
-            Log.i("address",json.toString());
+           // Log.i("address",json.toString());
             addresspos=Integer.parseInt(args[0]);
+           // Log.i("pos","pos "+addresspos);
 
             return json;
         }
@@ -715,16 +938,23 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
         protected void onPostExecute(JSONObject json) {
 
 
+            try {
 
-            DialogFragment dialog = new UserAlertDialogFragment();
+                if(json.getString("type").equals("NO")){
+
+            DialogFragment dialog = new AddressErrorDialogFragment2();
             Bundle args = new Bundle();
             args.putString("title", "Direccion");
             args.putString("message",json.toString());
             dialog.setArguments(args);
             dialog.setTargetFragment(dialog, 0);
             dialog.show(getFragmentManager(), "tag");
+
+                }
+
+
             String[] cordinates=null;
-            try {
+
                 if (json.getString("type").equals("Point")) {
 
                     String coor = json.getString("coordinates");
@@ -756,7 +986,15 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
 
                             if ((direcciones.get(addresspos - 1).isApproved()))
                             {
-                                direcciones.add(addresspos, direccion);
+                                //direcciones.add(addresspos, direccion);
+                                if(direcciones.size()>0) {
+                                    direcciones.set(addresspos, direccion);
+                                }
+                                else{
+                                    direcciones.add(0, null);
+                                    direcciones.set(1,direccion);
+                                }
+                                Log.i("position","pos1 "+addresspos+" "+direccion.getAddress());
 
                                 setDirectionCheckedListener(dircheck);
                                 Log.i("async","setlistener");
@@ -768,13 +1006,21 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
                         {
                         Log.i("alert","no deje direcciones vacias");
                             direcciones.add(direccion);
+                            Log.i("position","pos2 "+addresspos+" "+direccion.getAddress());
 
                             setDirectionCheckedListener(dircheck);
                             Log.i("async","setlistener");
                         }
                     }
                     else{
-                        direcciones.add(direccion);
+
+                        if(direcciones.size()>0) {
+                            direcciones.set(addresspos, direccion);
+                        }
+                        else{
+                            direcciones.add(addresspos,direccion);
+                        }
+                        Log.i("position","pos3 "+addresspos+" "+direccion.getAddress()+" "+actualResId+" "+dirRecogida.getId() );
 
                         setDirectionCheckedListener(dircheck);
                         Log.i("async","setlistener");
@@ -800,17 +1046,34 @@ public class NewService_2 extends Fragment implements View.OnFocusChangeListener
 
 
 
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
+
+                pDialog.dismiss();
+
+                DialogFragment dialog2 = new AddressErrorDialogFragment2();
+                Bundle argsdialog = new Bundle();
+                argsdialog.putString("title", "Error");
+                argsdialog.putString("message","Error conectando con el servidor, por favor revise su conexión a internet");
+                dialog2.setArguments(argsdialog);
+                dialog2.setTargetFragment(dialog2, 0);
+                dialog2.show(getFragmentManager(), "tag");
             }
 
 
-
+            remove=false;
             pDialog.dismiss();
 
 
         }
 
+    }
+
+    public static void setonStep2Next(OnStep2Next step){
+        step2 = step;
+
+       // Log.i("tipoo","s2 "+service.getHora_recogida()+" "+service.getFecha_recogida());
+        Log.i("paso2", "setlistene paso 2");
     }
 
 

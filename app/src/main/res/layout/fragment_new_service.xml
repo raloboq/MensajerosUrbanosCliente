@@ -4,8 +4,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
+    android:background="#FFFFFF"
     >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Servicio nuevo"
+        android:id="@+id/t1"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="¿Que tipo de servicio?"
+        android:id="@+id/t2"
+        android:layout_gravity="center"
+        android:textColor="#289DB8" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -27,37 +45,47 @@
             android:layout_marginBottom="15dp" />
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Express"
+                android:textColor="#6B6766"
+                android:background="@drawable/button_shape_nocolor_top"
                 android:id="@+id/type_service_b1"
                 android:layout_weight="1"
-                android:layout_marginRight="3dp"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:layout_marginBottom="1dp" />
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Estandard"
+                android:background="@drawable/onlyborders"
                 android:id="@+id/type_service_b2"
                 android:layout_weight="1"
-                android:layout_marginRight="3dp"
+                android:layout_marginRight="5dp"
                 android:textStyle="normal"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:padding="10dp"
+                android:textColor="#6B6766"
+                android:layout_marginBottom="1dp" />
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="Por horas"
+                android:text="Por horassssssss"
+                android:background="@drawable/test"
+
                 android:id="@+id/type_service_b3"
                 android:layout_weight="1"
-                android:textSize="16dp" />
+                android:textStyle="normal"
+                android:textSize="10dp"
+                android:textColor="#6B6766" />
         </LinearLayout>
 
         <TextView
@@ -74,55 +102,11 @@
             android:text="@string/Seleccione_fecha_hora"
             android:id="@+id/datetime_button"
             android:layout_margin="20dp"
+            android:padding="10dp"
             android:background="@drawable/button_shape_blue"
             android:textColor="#ffffff" />
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Siguiente"
-        android:id="@+id/Next1"
-        android:layout_gravity="center"
-        android:background="@drawable/button_shape_blue"
-        android:padding="10dp"
-        android:textColor="#ffffff" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="16dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:padding="24dp"
-            android:orientation="vertical"
-            android:background="@drawable/card_bg"
-            android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/type_service_text"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:gravity="center"
-            android:text="servicios"
-            />
-
-
-
-
-        </LinearLayout>
-
-        </FrameLayout>
-
-    </ScrollView>
 
 </LinearLayout>

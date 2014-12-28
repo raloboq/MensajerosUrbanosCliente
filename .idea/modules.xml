@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MensajerosUrbanos.iml" filepath="$PROJECT_DIR$/MensajerosUrbanos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MensajerosUrbanosCliente.iml" filepath="$PROJECT_DIR$/MensajerosUrbanosCliente.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/facebook/facebook.iml" filepath="$PROJECT_DIR$/libraries/facebook/facebook.iml" />
     </modules>
   </component>
 </project>

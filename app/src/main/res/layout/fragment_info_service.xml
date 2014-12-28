@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageButton
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/imageButton" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#20AAC2"
+                    android:id="@+id/recursoNombreT"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/recursoNombre"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cedula:"
+                    android:textColor="#20AAC2"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/recursoCedulaT"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/recursoCedula"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Placa:"
+                    android:textColor="#20AAC2"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/recursoPlacaMotoT"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:id="@+id/recursoPlacaMoto"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Servicio Creado"
+                android:textColor="#20AAC2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/ServicioCreadoDate"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+
+                android:id="@+id/creation_date"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Servicio Asignado"
+                android:textColor="#20AAC2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/servicioAsignadoDate"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/assigned_date"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Servicio Finalizado"
+                android:textColor="#20AAC2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/servicioFinalizadoDate"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+
+                android:id="@+id/finish_date"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/TaskStatus"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:id="@+id/mapActiveService"
+
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_margin="5dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

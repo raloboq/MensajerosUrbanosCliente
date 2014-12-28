@@ -9,6 +9,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -25,65 +26,63 @@ public class Help_faqs extends Fragment {
 
         font1 = Typeface.createFromAsset(getActivity().getAssets(), "Raleway-Light.ttf");
 
-        TextView rate = (TextView)rootView.findViewById(R.id.ratetextView);
-        rate.setTypeface(font1);
-        TextView faq = (TextView)rootView.findViewById(R.id.faqtextView2);
-        faq.setTypeface(font1);
-        TextView call = (TextView)rootView.findViewById(R.id.calltextView3);
-        call.setTypeface(font1);
-        TextView feedback = (TextView)rootView.findViewById(R.id.feedbacktextView4);
-        feedback.setTypeface(font1);
-        TextView work = (TextView)rootView.findViewById(R.id.worktextView5);
-        work.setTypeface(font1);
-        TextView privacy = (TextView)rootView.findViewById(R.id.privacytextView6);
-        privacy.setTypeface(font1);
-        TextView terms = (TextView)rootView.findViewById(R.id.termstextView7);
-        terms.setMovementMethod(LinkMovementMethod.getInstance());
-        terms.setTypeface(font1);
-
-        rate.setOnClickListener(new View.OnClickListener() {
+        Button Contact_button = (Button)rootView.findViewById(R.id.Contact_button);
+        Contact_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String url = "http://mensajerosurbanos.com/contactenos.mu";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
 
             }
         });
 
-        faq.setOnClickListener(new View.OnClickListener() {
+        Button terminos = (Button)rootView.findViewById(R.id.terminos_button);
+        terminos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String url = "http://mensajerosurbanos.com/site/terminos.mu";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
 
             }
         });
 
-        call.setOnClickListener(new View.OnClickListener() {
+        Button politicas = (Button)rootView.findViewById(R.id.politicas_button);
+        politicas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                String url = "http://mensajerosurbanos.com/site/politicas.mu";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
 
             }
         });
 
-        feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        work.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        privacy.setOnClickListener(new View.OnClickListener() {
+        Button califica = (Button)rootView.findViewById(R.id.califica_button);
+        califica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
+
+                String url =  "https://play.google.com/store/apps/details?id=co.mensajeros.cliente";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+
             }
         });
-
 
 
     return  rootView;

@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView" >
+
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2">
+    android:background="#FFFFFF">
 
-    <ScrollView
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView" >
+        android:layout_gravity="right">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/banderin"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="right" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/UserName"
+            android:textColor="#FFFFFF"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -20,28 +46,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/card"
                 android:id="@+id/SecondStepLayout">
-
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/cityspinner"
-                    android:spinnerMode="dropdown"
-                    android:entries="@array/city_array"
-                    android:prompt="@string/city_prompt"
-                    android:layout_marginTop="15dp"
-                    android:layout_gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/DirRecogida"
-                    android:id="@+id/dirRecogida"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -50,35 +55,29 @@
                     android:layout_gravity="center">
 
                     <EditText
-                        android:layout_width="wrap_content"
+                        android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/dirRecogidaText"
                         android:layout_gravity="center"
                         android:autoText="false"
-                        android:background="@drawable/new_edit_text"
-                        android:hint="@string/DirRecogidaText"
-                        android:padding="5dp" />
+                        android:background="@drawable/button_shape_nocolor_top"
+                        android:hint="Dirección de recogida"
+                        android:drawableLeft="@drawable/ico_ubicacion_actual"
+                        android:ellipsize="start"
+                        android:padding="5dp"
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:gravity="center" />
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:id="@+id/dirRecogidaIcon"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="5dp" />
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
 
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="@string/DirEntrega"
-                    android:id="@+id/dirEntrega"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:padding="5dp"
-                    android:layout_marginBottom="15dp" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -88,25 +87,37 @@
                    android:layout_marginBottom="20dp">
 
                     <EditText
-                        android:layout_width="wrap_content"
+                        android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/dirEntregaText"
                         android:layout_gravity="center"
                         android:autoText="false"
-                        android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:hint="Dirección de entrega"
+                        android:drawableLeft="@drawable/ico_ubicacion"
+                        android:ellipsize="start"
+                        android:background="@drawable/button_shape_nocolor_bottom"
                         android:padding="5dp"
-                         />
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:gravity="center" />
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:id="@+id/dirEntregaIcon"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="5dp" />
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
 
-
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ida y vuelta"
+                    android:id="@+id/idavuelta"
+                    android:checked="false"
+                    android:textColor="#8F8A8A"
+                    android:layout_gravity="center" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -119,19 +130,25 @@
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/addDirection"
+                        android:text="Agregar dirección"
                         android:id="@+id/more_directions"
-                        android:drawableRight="@android:drawable/ic_input_add"
+                        android:drawableLeft="@android:drawable/ic_input_add"
 
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:textColor="#8F8A8A" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/removeDirection"
                         android:id="@+id/remove_direction"
-                        android:drawableRight="@android:drawable/ic_delete" />
+                        android:drawableLeft="@android:drawable/ic_delete"
+                        android:layout_weight="1"
+                        android:textColor="#8F8A8A"
+                        android:background="#FFFFFF" />
 
 
                 </LinearLayout>
@@ -141,17 +158,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
 
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/dirEntregaText2"
-                        android:layout_gravity="center"
-                        android:autoText="false"
-                        android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
-                        android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -159,11 +166,13 @@
                         android:id="@+id/dirEntregaText3"
                         android:layout_gravity="center"
                         android:autoText="false"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/button_shape_nocolor_top"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -172,10 +181,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -184,10 +193,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -196,10 +205,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -208,10 +217,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -220,10 +229,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -232,10 +241,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -244,10 +253,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -256,10 +265,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -268,10 +277,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -280,11 +289,11 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
 
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -293,10 +302,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                        />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -305,10 +314,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -317,10 +326,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -329,10 +338,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -341,10 +350,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
-                        android:padding="5dp"
+                        android:background="@drawable/onlyborders"
+
                         android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+                         />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -353,10 +362,10 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/onlyborders"
                         android:padding="5dp"
-                        android:visibility="gone"
-                        android:layout_marginBottom="5dp" />
+
+                        />
 
                     <EditText
                         android:layout_width="wrap_content"
@@ -365,9 +374,9 @@
                         android:layout_gravity="center"
                         android:autoText="false"
                         android:hint="@string/DirEntregaText"
-                        android:background="@drawable/new_edit_text"
+                        android:background="@drawable/button_shape_nocolor_bottom"
                         android:padding="5dp"
-                        android:visibility="gone"
+
                         android:layout_marginBottom="5dp" />
 
 
@@ -384,6 +393,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Siguiente"
+                    android:textColor="#ffffff"
                     android:id="@+id/Next2"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
@@ -393,6 +403,8 @@
                     android:focusableInTouchMode="true" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
 
 </LinearLayout>
+
+</ScrollView>

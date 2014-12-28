@@ -28,6 +28,7 @@ public class UserAlertDialogFragment extends DialogFragment
         String message = args.getString("message");
 
         return new AlertDialog.Builder(getActivity())
+
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener()

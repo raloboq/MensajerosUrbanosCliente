@@ -1,16 +1,26 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="500dp"
+    android:id="@+id/scrollView4"
+    android:background="#FFFFFF">
+
+<LinearLayout
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:focusableInTouchMode="true">
 
     <fragment
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="fill_parent"
+        android:layout_height="210dp"
         android:id="@+id/map"
+        android:tag="map"
 
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_margin="5dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        class="co.mensajeros.cliente.WorkaroundMapFragment"/>
 
 
 
@@ -24,7 +34,10 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="0dp"
+            android:background="@drawable/button_shape_nocolor_top"
+            android:padding="2dp"
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="match_parent"
@@ -32,40 +45,182 @@
                 android:text="Valor del servicio"
                 android:id="@+id/textView5"
                 android:layout_weight="1"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+
+                android:textColor="#E47D75"
+                android:layout_marginLeft="3dp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/ResumenValorServ"
-                android:layout_weight="1"
                 android:textSize="18dp"
-                android:gravity="right" />
+                android:gravity="right"
+                android:layout_marginRight="3dp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/linears1"
+            android:background="@drawable/onlyborders"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Recargo distancia"
+                android:id="@+id/textViews1"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:textColor="#E47D75"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/recargo_distancia"
+                android:gravity="right"
+                android:layout_marginRight="3dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/linears2"
+            android:background="@drawable/onlyborderstop"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Recargo paradas"
+                android:id="@+id/textViews2"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:textColor="#E47D75"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/recargo_paradas"
+                android:gravity="right"
+                android:layout_marginRight="3dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/linears3"
+            android:background="@drawable/onlyborderstop"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Recargo seguro"
+                android:id="@+id/textViews3"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:textColor="#E47D75"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/recargo_seguro"
+                android:gravity="right"
+                android:layout_marginRight="3dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/linears4"
+            android:background="@drawable/onlyborderstop"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Recargo Ida y vuelta"
+                android:id="@+id/textViews4"
+                android:layout_weight="1"
+                android:textSize="14dp"
+                android:textColor="#E47D75"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/ida_vuelta"
+                android:gravity="right"
+                android:layout_marginRight="3dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:id="@+id/linears5"
+            android:background="@drawable/onlyborders"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Distancia"
+                android:id="@+id/textViews5"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textColor="#E47D75"
+                android:layout_marginLeft="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/dist"
+                android:gravity="right"
+                android:textSize="16dp"
+                android:layout_marginRight="3dp" />
+
+        </LinearLayout>
+
 
         <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/linear1">
+            android:id="@+id/linear1"
+            android:background="@drawable/onlyborderstop"
+            android:layout_weight="1">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/fecha"
             android:id="@+id/textView"
             android:layout_weight="1"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="#E47D75"
+            android:layout_marginLeft="5dp" />
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/ResumenFecha"
-            android:layout_weight="1"
-            android:gravity="right" />
+            android:gravity="right"
+            android:layout_marginRight="3dp" />
 
     </LinearLayout>
 
@@ -73,9 +228,9 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/linear3">
+            android:id="@+id/linear3"
+            android:background="@drawable/onlyborderstop"
+            android:layout_weight="1">
 
         <TextView
             android:layout_width="0dp"
@@ -83,14 +238,16 @@
             android:text="@string/direccionrecogida"
             android:id="@+id/textView3"
             android:layout_weight="1"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="#E47D75"
+            android:layout_marginLeft="5dp" />
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/ResumenDireccionRecogida"
-            android:layout_weight="1"
-            android:gravity="right" />
+            android:gravity="right"
+            android:layout_marginRight="3dp" />
     </LinearLayout>
 
 
@@ -98,24 +255,26 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/linear4">
+        android:id="@+id/linear4"
+        android:background="@drawable/button_shape_nocolor_bottom"
+        android:layout_weight="1">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/direccionentrega"
             android:id="@+id/textView4"
-            android:layout_weight="1"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textColor="#E47D75"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/ResumenDireccionEntrega"
-            android:layout_weight="1"
-            android:gravity="right" />
+            android:gravity="right"
+            android:layout_marginRight="3dp" />
     </LinearLayout>
 
 
@@ -123,35 +282,46 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/linear8">
+            android:layout_marginBottom="5dp"
+        android:id="@+id/linear8"
+            android:layout_weight="1">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/idayvuelta"
             android:id="@+id/textView8"
-            android:layout_weight="1"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
 
-        <CheckBox
-            android:layout_width="168dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/checkBoxida"
-            android:checked="false"
-            android:layout_weight="0.08" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkBoxida"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:gravity="right" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Solicitar servicio"
-            android:background="@drawable/button_shape_blue"
-            android:id="@+id/Solicitarbutton"
-            android:layout_marginTop="10dp" />
+
 
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Solicitar servicio"
+        android:textColor="#ffffff"
+        android:background="@drawable/button_shape_blue"
+        android:id="@+id/Solicitarbutton"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" />
+
 
 </LinearLayout>
+
+    </ScrollView>

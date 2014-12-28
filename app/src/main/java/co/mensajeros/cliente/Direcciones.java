@@ -45,6 +45,16 @@ public class Direcciones implements Serializable{
     String Address;
     double latitude;
 
+    public String getEstado_address() {
+        return estado_address;
+    }
+
+    public void setEstado_address(String estado_address) {
+        this.estado_address = estado_address;
+    }
+
+    String estado_address;
+
     public boolean isApproved() {
         return approved;
     }

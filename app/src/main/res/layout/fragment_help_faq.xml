@@ -3,71 +3,130 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFEFEF">
+    android:background="#FFFFFF">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView5"
+        android:src="@drawable/logo_volando_azul"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Califica nuestra aplicación"
-        android:id="@+id/ratetextView"
-        android:background="#ffffff"
-        android:padding="10dp"
-        android:layout_marginTop="10dp" />
+        android:text="Ayuda"
+        android:id="@+id/textView17"
+        android:layout_gravity="center"
+        android:textColor="#E4786F"
+        android:textSize="16dp"
+        android:layout_marginBottom="5dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Preguntas frecuentes"
-        android:id="@+id/faqtextView2"
-        android:background="#ffffff"
-        android:padding="10dp"
-        android:layout_marginTop="20dp" />
+        android:text="Para mayor información visite"
+        android:id="@+id/textView20"
+        android:layout_gravity="center"
+        android:textColor="#959291"
+        android:layout_marginBottom="15dp" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Asistencia telefónica"
-        android:id="@+id/calltextView3"
-        android:background="#ffffff"
-        android:padding="10dp" />
+        android:text="mensajerosurbanos.com/contactenos.mu     "
+        android:id="@+id/Contact_button"
+        android:drawableRight="@drawable/flecha_lado"
+        android:background="@drawable/button_shape_nocolor_borders"
+        android:textColor="#E4786F"
+        android:textSize="14dp"
+        android:layout_gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Enviar comentarios"
-        android:id="@+id/feedbacktextView4"
-        android:background="#ffffff"
-        android:padding="10dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Trabaja con nosotros"
-        android:id="@+id/worktextView5"
-        android:background="#ffffff"
-        android:padding="10dp"
-        android:layout_marginTop="20dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="left"
+            android:gravity="left">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Pólitica de privacidad"
-        android:id="@+id/privacytextView6"
-        android:background="#ffffff"
-        android:padding="10dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/terminos_button"
+                android:background="@drawable/terminos" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/faq_terms"
-        android:id="@+id/termstextView7"
-        android:background="#ffffff"
-        android:padding="10dp" />
+            <TextView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:text="Terminos y condiciones"
+                android:id="@+id/textView21"
+                android:lines="2"
+                android:gravity="center"
+                android:textColor="#959291" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/politicas_button"
+                android:background="@drawable/politicas" />
+
+            <TextView
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="Politicas de privacidad"
+                android:id="@+id/textView22"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#959291" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:gravity="right">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/califica_button"
+                android:background="@drawable/califica" />
+
+            <TextView
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:text="Califique la app"
+                android:id="@+id/textView23"
+                android:gravity="center"
+                android:textColor="#959291" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>

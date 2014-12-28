@@ -14,7 +14,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.TypefaceSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,6 +38,11 @@ public class main extends ActionBarActivity
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
+    private static OnNextClicked nextlistener;
+     boolean servicio_pendiente;
+    ServiceObject serv;
+    boolean nextoption = false;
+
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -54,14 +61,22 @@ public class main extends ActionBarActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
 
+        /*Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            serv = new  ServiceObject();
+
+            serv = (ServiceObject) extras.getSerializable("serviceobject");
+            Log.i("serv","main + contain "+ serv.getDescripcion());
+        }*/
+
         font2 = Typeface.createFromAsset(getApplicationContext().getAssets(), "Analogue45Light.ttf");
         font3 = Typeface.createFromAsset(getApplicationContext().getAssets(), "Analogue56Oblique.ttf");
 
         int titleId = getResources().getIdentifier("action_bar_title", "id", "android");
         TextView textView = (TextView) findViewById(titleId);
         //Typeface typeface = Typeface.create("sans-serif-light", Typeface.ITALIC); // add your typeface
-        textView.setTypeface(font3);
-        textView.setTextColor(Color.parseColor("#20AAC2"));
+//        textView.setTypeface(font3);
+  //      textView.setTextColor(Color.parseColor("#20AAC2"));
 
         pref = getApplicationContext().getSharedPreferences("UrbanosPref", 0); // 0 - for private mode
         editor = pref.edit();
@@ -70,6 +85,10 @@ public class main extends ActionBarActivity
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
+
+        //servicio_pendiente = pref.getBoolean("PENDIENTE", false);
+
+        //Log.i("pendiente","main"+servicio_pendiente+"");
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -82,48 +101,82 @@ public class main extends ActionBarActivity
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        switch (position) {
-            //
+        pref = getApplicationContext().getSharedPreferences("UrbanosPref", 0); // 0 - for private mode
 
-            case 0:
-                //Info de usuario
-                NewService nservice = new NewService();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, nservice)
-                        .commit();
-                break;
-            case 1:
+        Bundle extras = getIntent().getExtras();
 
-                ListService lservice = new ListService();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, lservice)
-                        .commit();
-                break;
+        if(extras!=null){
 
-            case 2:
+            if (extras.containsKey("serviceobject")) {
+                serv = new  ServiceObject();
 
-                ShareFragment sfragment = new ShareFragment();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, sfragment)
-                        .commit();
+                serv = (ServiceObject) extras.getSerializable("serviceobject");
+//            Log.i("serv","main + contain "+ serv.getDescripcion());
+            }
+        }
 
-                break;
+        servicio_pendiente = pref.getBoolean("PENDIENTE", false);
 
-            case 3:
+        if(servicio_pendiente){
 
-                Help_faqs helpfrag = new Help_faqs();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, helpfrag)
-                        .commit();
+//            Log.i("pendiente","drawerfunc "+position +" "+ serv.getDescripcion());
 
-                break;
+            Bundle data = new Bundle();
+            data.putSerializable("serviceobjectregister",serv);
+            NewService4 nservice4 = new NewService4();
+            nservice4.setArguments(data);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, nservice4)
+                    .addToBackStack("n1")
+                    .commit();
+        }
+        else {
+            Log.i("pendiente","else drawerfunc "+position);
 
-            case 4:
+            switch (position) {
+                //
 
-                editor.putString("USERID", null).commit(); // Storing string
-                editor.putString("SALDO", null).commit();
-                finish();
-                break;
+                case 0:
+                    //Info de usuario
+                    nextoption=true;
+                    NewService nservice = new NewService();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, nservice)
+                            .commit();
+                    break;
+                case 1:
+                    nextoption=false;
+                    ActiveServices activeservice = new ActiveServices();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, activeservice)
+                            .commit();
+                    break;
+
+                case 2:
+                    nextoption=false;
+                    ShareFragment sfragment = new ShareFragment();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, sfragment)
+                            .commit();
+
+                    break;
+
+                case 3:
+                    nextoption=false;
+                    Help_faqs helpfrag = new Help_faqs();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.container, helpfrag)
+                            .commit();
+
+                    break;
+
+                case 4:
+
+                    editor.putString("USERID", null).commit(); // Storing string
+                    editor.putString("SALDO", null).commit();
+                    finish();
+                    break;
+            }
         }
     }
 
@@ -155,8 +208,13 @@ public class main extends ActionBarActivity
             // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
+
+            if(nextoption)
+            {
             getMenuInflater().inflate(R.menu.main, menu);
-            restoreActionBar();
+            }
+
+            //restoreActionBar();
             return true;
         }
         return super.onCreateOptionsMenu(menu);
@@ -168,7 +226,8 @@ public class main extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_next) {
+            nextlistener.nextclicked();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -212,6 +271,13 @@ public class main extends ActionBarActivity
             ((main) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+
+
+    }
+
+    public static void setOnNextClickListener(OnNextClicked onnextlistener){
+        nextlistener = onnextlistener;
+        Log.i("listener", "setlistener");
     }
 
 }

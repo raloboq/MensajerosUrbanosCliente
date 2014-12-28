@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/scrollView3"
+    android:background="#FFFFFF">
+
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/ic_logomensajeros1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Correo"
+        android:background="@drawable/button_shape_nocolor_top"
+        android:layout_gravity="center_horizontal"
+        android:hint="Correo electrónico"
+        android:padding="10dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Nombreusuario"
+        android:background="@drawable/onlyborders"
+        android:layout_gravity="center_horizontal"
+        android:hint="Nombre"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/onlyborders"
+        android:id="@+id/Password"
+        android:hint="Contraseña"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Cedula"
+        android:background="@drawable/onlyborders"
+        android:layout_gravity="center_horizontal"
+        android:hint="Cedula"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Celular"
+        android:background="@drawable/shape_white_buttom"
+        android:layout_gravity="center_horizontal"
+        android:hint="Celular"
+        android:padding="10dp"
+        android:inputType="number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:textColor="#ffffff"
+        android:background="@drawable/shape_red_buttom"
+        android:id="@+id/Registerbutton"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_gravity="center" />
+
+
+
+
+</LinearLayout>
+
+</ScrollView>

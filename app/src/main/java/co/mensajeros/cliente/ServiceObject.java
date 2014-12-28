@@ -73,10 +73,7 @@ public class ServiceObject implements Serializable {
 
 
 
-    String Descripcion;
-    String Valor_declarado;
-    String Ciudad;
-    String IdayVuelta;
+
 
     public ArrayList<Direcciones> getDirecciones() {
         return Direcciones;
@@ -90,6 +87,16 @@ public class ServiceObject implements Serializable {
     String Tipo_servicio;
     String Fecha_recogida;
 
+    public String getHora_recogida() {
+        return Hora_recogida;
+    }
+
+    public void setHora_recogida(String hora_recogida) {
+        Hora_recogida = hora_recogida;
+    }
+
+    String Hora_recogida;
+
     String valor_servicio;
     String recargo_ida_vuelta;
     String recargo_distancia;
@@ -101,6 +108,30 @@ public class ServiceObject implements Serializable {
     String ida_vuelta;
     String distancia_total;
     String valor_declarado;
+    String Descripcion;
+    String Valor_declarado;
+    String Ciudad;
+    String IdayVuelta;
+    String id;
+
+    public String getFecha_creacion() {
+        return fecha_creacion;
+    }
+
+    public void setFecha_creacion(String fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
+    }
+
+    String fecha_creacion;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getValor_servicio() {
         return valor_servicio;

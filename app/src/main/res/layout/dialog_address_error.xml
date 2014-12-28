@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00777777">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:id="@+id/messagelayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Error"
+            android:id="@+id/textView26"
+            android:textColor="#289DB8"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   La dirección ingresada no existe"
+            android:drawableLeft="@drawable/ico_ubicacion_actual"
+            android:id="@+id/AddressErrorMessage"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00777777"
+        android:layout_gravity="center"
+        android:layout_below="@+id/messagelayout"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresar nuevamente"
+            android:id="@+id/ingresarButton"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_blue_shadow"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginTop="10dp" />
+    </FrameLayout>
+
+</RelativeLayout>

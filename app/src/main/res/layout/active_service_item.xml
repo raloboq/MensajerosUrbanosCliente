@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/ServiceType"
+            android:textColor="#00A0BB"
+            android:textSize="16dp"
+            android:layout_marginRight="3dp"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="3dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="$10000"
+        android:id="@+id/ServiceCost"
+        android:layout_gravity="center"
+        android:textColor="#00A0BB"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha de recogida:"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:textColor="#00A0BB"
+            android:gravity="center"
+            android:layout_marginLeft="3dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/ServiceFechaRecogida"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="#00A0BB"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/ServiceHoraRecogida"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="#00A0BB"
+            android:gravity="center"
+            android:layout_marginLeft="3dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ServiceBuyCost"
+        android:layout_gravity="center"
+        android:background="#E4786F"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:textColor="#00A0BB"
+        android:text="SERVICIO ACTIVO"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp" />
+
+</LinearLayout>

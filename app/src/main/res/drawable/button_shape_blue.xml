@@ -1,12 +1,15 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="10dp"
-    android:shape="rectangle" >
+    android:shape="rectangle"
+    android:paddingLeft="8dp"
+    >
     <corners android:radius="6dp" />
 
     <gradient
         android:angle="270"
         android:endColor="#20AAC2"
-        android:startColor="#20AAC2" />
+        android:startColor="#20AAC2"
+        android:paddingLeft="8dp"/>
 
     <stroke
         android:width="20px"

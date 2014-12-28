@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/mapActiveService"
+
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_margin="5dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+
+                android:id="@+id/distancia_text"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="@drawable/button_shape_nocolor_top"
+                android:padding="10dp"
+                android:textColor="#858281" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/onlyborders"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facturado por"
+                android:id="@+id/textView30"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:textColor="#858281" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/valor_text"
+                android:gravity="center"
+                android:layout_weight="0.5"
+                android:textColor="#E47D75"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:drawableRight="@drawable/flecha_lado"
+
+                android:id="@+id/recurso_text"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="@drawable/button_shape_nocolor_bottom"
+                android:padding="10dp"
+                android:textColor="#858281" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle" android:paddingLeft="8dp">
+
+            <solid android:color="#CCCCCC" />
+            <corners
+
+                android:topLeftRadius="0.1dp" android:topRightRadius="0.1dp"
+                android:bottomRightRadius="6dp"
+                android:bottomLeftRadius="6dp"/>
+        </shape>
+
+
+    </item>
+    <item android:left="1dp"  android:right="1dp"  android:bottom="1dp">
+        // add android:right="5dp" and android:left="5dp" for border on left and right
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <corners
+
+                android:topLeftRadius="0.1dp" android:topRightRadius="0.1dp"
+                android:bottomRightRadius="6dp"
+                android:bottomLeftRadius="6dp"/>
+        </shape>
+    </item>
+</layer-list>
